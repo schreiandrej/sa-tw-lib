@@ -36,16 +36,16 @@
   "name": "sa-tw-lib",
   "author": "schreiandrej",
   "module": "dist/sa-tw-lib.esm.js",
-  "repository": "git+https://github.com/schreiandrej/#.git",
+  "repository": "git+https://github.com/schreiandrej/sa-tw-lib.git",
   "keywords": [
     "tailwindcss",
     "tailwind",
     "react"
   ],
   "bugs": {
-    "url": "https://github.com/schreiandrej/#/issues"
+    "url": "https://github.com/schreiandrej/sa-tw-lib/issues"
   },
-  "homepage": "https://github.com/schreiandrej/#",
+  "homepage": "https://github.com/schreiandrej/sa-tw-lib",
   "size-limit": [
     {
       "path": "dist/sa-tw-lib.cjs.production.min.js",
