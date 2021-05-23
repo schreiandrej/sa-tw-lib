@@ -33,13 +33,14 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "sa-tw-form-components",
+  "name": "sa-tw-lib",
   "author": "schreiandrej",
-  "module": "dist/sa-tw-form-components.esm.js",
+  "module": "dist/sa-tw-lib.esm.js",
   "repository": "git+https://github.com/schreiandrej/#.git",
   "keywords": [
-    "next-js",
-    "tailwindcss"
+    "tailwindcss",
+    "tailwind",
+    "react"
   ],
   "bugs": {
     "url": "https://github.com/schreiandrej/#/issues"
@@ -47,11 +48,11 @@
   "homepage": "https://github.com/schreiandrej/#",
   "size-limit": [
     {
-      "path": "dist/sa-tw-form-components.cjs.production.min.js",
+      "path": "dist/sa-tw-lib.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/sa-tw-form-components.esm.js",
+      "path": "dist/sa-tw-lib.esm.js",
       "limit": "10 KB"
     }
   ],

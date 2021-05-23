@@ -1,16 +1,15 @@
-# Innerlaber Formfields
+# sa-tw-lib
 
-A Set of formfields with labels withhin the field. OnFocus the label moves above the field.
+A tailwind-react component library.
 
-> This components are designed with tailwindcss. I recommend also use to @tailwindcss/forms for a global browser unopiniened styling.
+> This components are designed with tailwindcss.
 
-## Usage
+## Usage Exmaple
 
 ```bash
 
-import {Input, CheckBox} from 'innerlabel-formfields'
+import {Input, CheckBox} from 'sa-tw-lib'
 
-// Required props
 <Input name="input" label="Input Label" type="text" />
 
 ```
