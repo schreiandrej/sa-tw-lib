@@ -4,6 +4,7 @@ interface InputProps {
   name: string;
   type: string;
   label: string;
+  ref?: React.ForwardedRef<HTMLInputElement>;
   inputStyles?: string;
   labelStyles?: string;
   autoComplete?: string;
@@ -13,56 +14,61 @@ interface InputProps {
   value?: string;
 }
 
-export const Input = ({
-  name,
-  type,
-  label,
-  inputStyles,
-  labelStyles,
-  autoComplete,
-  max,
-  min,
-}: InputProps) => {
-  const [active, activeSet] = React.useState(false);
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (props, ref) => {
+    const [active, activeSet] = React.useState(false);
 
-  const handleActivation = (e: { target: { value: any } }) => {
-    console.log(e);
-    activeSet(!!e.target.value);
-  };
+    const {
+      name,
+      type,
+      label,
+      inputStyles,
+      labelStyles,
+      autoComplete,
+      max,
+      min,
+    } = props;
 
-  const handleActivationFocus = () => {
-    activeSet(true);
-  };
+    const handleActivation = (e: { target: { value: any } }) => {
+      console.log(e);
+      activeSet(!!e.target.value);
+    };
 
-  const handleActivationBlur = (e: { target: { value: string } }) => {
-    if (e.target.value === '') {
-      activeSet(false);
-    }
-  };
+    const handleActivationFocus = () => {
+      activeSet(true);
+    };
 
-  return (
-    <div className="relative z-10">
-      <input
-        type={type}
-        name={name}
-        autoComplete={autoComplete}
-        className={`z-10 text-sm cursor-text ${inputStyles} ${
-          active ? '' : ''
-        }`}
-        max={max}
-        min={min}
-        onFocus={handleActivationFocus}
-        onBlur={handleActivationBlur}
-        onChange={handleActivation}
-      />
-      <label
-        htmlFor={name}
-        className={`${labelStyles} absolute z-[-10] left-4 flex items-center focus:outline-none text-opacity-50 transition-all duration-200 ease-in-out ${
-          active ? 'text-xs -top-5' : 'text-sm absoluteY-center'
-        }`}
-      >
-        {label}
-      </label>
-    </div>
-  );
-};
+    const handleActivationBlur = (e: { target: { value: string } }) => {
+      if (e.target.value === '') {
+        activeSet(false);
+      }
+    };
+
+    return (
+      <div className="relative z-10">
+        <input
+          ref={ref}
+          type={type}
+          name={name}
+          autoComplete={autoComplete}
+          className={`z-10 text-sm cursor-text ${inputStyles} ${
+            active ? '' : ''
+          }`}
+          max={max}
+          min={min}
+          onFocus={handleActivationFocus}
+          onBlur={handleActivationBlur}
+          onChange={handleActivation}
+        />
+        <label
+          htmlFor={name}
+          className={`${labelStyles} absolute z-[-10] left-4 flex items-center focus:outline-none text-opacity-50 transition-all duration-200 ease-in-out ${
+            active ? 'text-xs -top-5' : 'text-sm absoluteY-center'
+          }`}
+        >
+          {label}
+        </label>
+      </div>
+    );
+  }
+);
