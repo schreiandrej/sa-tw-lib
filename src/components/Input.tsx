@@ -11,6 +11,7 @@ interface InputProps {
   accept?: string;
   max?: number;
   min?: number;
+  step?: string;
   value?: string;
 }
 
@@ -27,6 +28,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       autoComplete,
       max,
       min,
+      step,
     } = props;
 
     const handleActivation = (e: { target: { value: any } }) => {
@@ -56,6 +58,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           }`}
           max={max}
           min={min}
+          step={step}
           onFocus={handleActivationFocus}
           onBlur={handleActivationBlur}
           onChange={handleActivation}
