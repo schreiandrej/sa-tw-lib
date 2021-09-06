@@ -12,6 +12,7 @@ interface InputProps {
   max?: number;
   min?: number;
   step?: string;
+  defaultValue?: string;
   value?: string;
 }
 
@@ -29,6 +30,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       max,
       min,
       step,
+      defaultValue,
     } = props;
 
     const handleActivation = (e: { target: { value: any } }) => {
@@ -59,6 +61,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           max={max}
           min={min}
           step={step}
+          defaultValue={defaultValue}
           onFocus={handleActivationFocus}
           onBlur={handleActivationBlur}
           onChange={handleActivation}
